@@ -2,6 +2,8 @@ package subscriber;
 
 import publisher.Publisher;
 
+import java.util.List;
+
 public class PredictedScoreSubscriber implements Subscriber{
 
 
@@ -12,20 +14,25 @@ public class PredictedScoreSubscriber implements Subscriber{
 
     private float overs;
 
-    public Publisher getPublisher() {
-        return publisher;
+    public List<Publisher> getPublisher() {
+        return publishers;
     }
 
-    private final Publisher publisher;
+    private  List<Publisher> publishers;
 
 
     // subsriber subsribes to one publisher as per this code will make it scalable
-    public PredictedScoreSubscriber(Publisher publisher) {
-        this.publisher = publisher;
+    public PredictedScoreSubscriber(List<Publisher> publishers) {
+        this.publishers = publishers;
+        for(Publisher publisher:this.publishers)
+        {
+            publisher.subscribe(this);
+        }
+
     }
 
     @Override
-    public void update() {
+    public void update(Publisher publisher) {
         // data is pulled
         this.runs=publisher.getRuns();
         //this.wickets=wickets;

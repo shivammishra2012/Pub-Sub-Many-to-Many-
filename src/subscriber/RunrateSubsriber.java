@@ -2,6 +2,8 @@ package subscriber;
 
 import publisher.Publisher;
 
+import java.util.List;
+
 public class RunrateSubsriber implements Subscriber{
     private int runs;
 
@@ -9,18 +11,22 @@ public class RunrateSubsriber implements Subscriber{
 
     private float overs;
 
-    private final Publisher publisher;
+    private  List<Publisher> publishers;
 
-    public RunrateSubsriber(Publisher publisher) {
-        this.publisher = publisher;
+    public RunrateSubsriber(List<Publisher> publishers) {
+        this.publishers = publishers;
+        for(Publisher publisher:this.publishers)
+        {
+            publisher.subscribe(this);
+        }
     }
 
-    public Publisher getPublisher() {
-        return publisher;
+    public List<Publisher> getPublisher() {
+        return publishers;
     }
 
     @Override
-    public void update() {
+    public void update(Publisher publisher) {
         // as per data is pulled from publisher as per requirement
         //now  we have more flexibility to consume as per our reqyuirements
 

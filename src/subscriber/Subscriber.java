@@ -1,7 +1,9 @@
 package subscriber;
 
+import publisher.Publisher;
+
 public interface Subscriber {
     // contarct
 
-    void update();
+    void update(Publisher publisher);
 }

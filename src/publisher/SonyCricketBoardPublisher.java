@@ -5,7 +5,7 @@ import subscriber.Subscriber;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CricketBoardPublisher implements Publisher {
+public class SonyCricketBoardPublisher implements Publisher {
 
     private int runs;
 
@@ -20,7 +20,7 @@ public class CricketBoardPublisher implements Publisher {
 
 
 
-    public CricketBoardPublisher() {
+    public SonyCricketBoardPublisher() {
 
         this.subscribers = new ArrayList<>();
     }
@@ -44,7 +44,7 @@ public class CricketBoardPublisher implements Publisher {
 
         for(Subscriber subscriber:subscribers)
         {
-            subscriber.update();
+            subscriber.update(this);
         }
 
     }

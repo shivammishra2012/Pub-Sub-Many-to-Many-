@@ -1,4 +1,4 @@
-import publisher.CricketBoardPublisher;
+import publisher.SonyCricketBoardPublisher;
 import publisher.Publisher;
 import subscriber.PredictedScoreSubscriber;
 import subscriber.RunrateSubsriber;
@@ -16,13 +16,13 @@ public class tester {
         }
     }
     public static void main(String[] args) {
-        CricketBoardPublisher cricketBoardPublisher=new CricketBoardPublisher();
+       /* SonyCricketBoardPublisher cricketBoardPublisher=new CricketBoardPublisher();
         RunrateSubsriber runrateSubsriber=new RunrateSubsriber(cricketBoardPublisher);
         PredictedScoreSubscriber predictedScoreSubscriber=new PredictedScoreSubscriber(cricketBoardPublisher);
         connect(cricketBoardPublisher, Arrays.asList(runrateSubsriber,predictedScoreSubscriber));
         cricketBoardPublisher.notifyAll(400,12,34);
         predictedScoreSubscriber.getPublisher().unsubscribe(predictedScoreSubscriber);
-        cricketBoardPublisher.notifyAll(500,12,34);
+        cricketBoardPublisher.notifyAll(500,12,34);*/
 
     }
 }
